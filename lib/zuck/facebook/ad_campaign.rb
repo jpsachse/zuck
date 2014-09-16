@@ -70,8 +70,8 @@ module Zuck
       args = {
         "name" => self.name,
         "campaign_status" => self.campaign_status,
-        "start_time" => self.start_time,
-        "end_time" => self.end_time,
+        # "start_time" => self.start_time,
+        # "end_time" => self.end_time,
         "redownload" => true
       }  
 
