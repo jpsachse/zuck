@@ -53,9 +53,9 @@ module Zuck
       end
 
       args = {        
-        "title" => self.title,
-        "body" => self.body,
-        "image_url" => self.image_url,
+        # "title" => self.title,
+        # "body" => self.body,
+        # "image_url" => self.image_url,
         "object_story_spec" => self.object_story_spec
       }  
 
