@@ -75,7 +75,7 @@ module Zuck
       missing_fields = (REQUIRED_FIELDS - active_fields)
       if (missing_fields.length != 0)
         raise "You need to set the following fields before saving: #{missing_fields.join(', ')}"
-      elsif (!self.conversion_specs && (self.bid_type == BID_TYPE_ABSOLUTE_OCPM || self.bid_type == BID_TYPE_CPA))
+      elsif (self.objective == 'NONE' && !self.conversion_specs && (self.bid_type == BID_TYPE_ABSOLUTE_OCPM || self.bid_type == BID_TYPE_CPA))
         raise "You must specify 'conversion_specs' when the bid_type is OCPM or CPA"
       elsif (!self.id && !self.creative_id)
         raise "You must specify 'creative_id' to save a new AdGroup"
