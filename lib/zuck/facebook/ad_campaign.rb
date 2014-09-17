@@ -69,7 +69,7 @@ module Zuck
       # Setup the post body for Facebook
       args = {
         "name" => self.name,
-        "campaign_group_status" => self.campaign_status,
+        "campaign_status" => self.campaign_status,
         # "start_time" => self.start_time,
         # "end_time" => self.end_time,
         # "redownload" => true
