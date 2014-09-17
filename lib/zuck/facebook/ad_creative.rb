@@ -43,9 +43,10 @@ module Zuck
 
       active_fields = self.data.keys
       missing_fields = (REQUIRED_FIELDS - active_fields)
-      if (missing_fields.length != 0)
-        raise "You need to set the following fields before saving: #{missing_fields.join(', ')}"
-      elsif (!self.account_id)
+      # if (missing_fields.length != 0)
+      #   raise "You need to set the following fields before saving: #{missing_fields.join(', ')}"
+      # els
+      if (!self.account_id)
         raise "You need to set the account_id field in order to save this object"
       end
 
