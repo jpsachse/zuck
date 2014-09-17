@@ -1,75 +1,9 @@
 ---
 http_interactions:
-- request:
-    method: get
-    uri: https://graph.facebook.com/act_10150585630710217/adcampaigns?access_token=CAAEvJ5vzhl8BAH8aCPOx0Ft9uNB147TF8weJ8hK0g7YVDRWU4eEih7tEKdJgmfk0vABZClZACJbEzyhSMbiShL6RpsfkZASfX1C9nv1AlFvjJajflqkyYZAlpE2edT0FJHjdh4NFg0ZCt0sBgq0kZABtKsjuU18aMURLE7rjKHR4X8NkXBUafg1T4uZARRNqboZD&fields=
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.7
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0s=
-    headers:
-      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
-      - !binary |-
-        Kg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZSwgbm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD1VVEYtOA==
-      !binary "RXRhZw==":
-      - !binary |-
-        ImI5YjM2YzhjZGJjZGFjNTJjNmM2OTgzMzM1YjE1MzkxMTBlMjg0ZDgi
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        U2F0LCAwMSBKYW4gMjAwMCAwMDowMDowMCBHTVQ=
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "WC1GYi1SZXY=":
-      - !binary |-
-        OTM0Njc3
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "WC1GYi1EZWJ1Zw==":
-      - !binary |-
-        Q0NSSlVETStDdTBhNlBCUklPRW4zUUxkVlBrRVRDRzdORVlTSnpZQTVqUT0=
-      !binary "RGF0ZQ==":
-      - !binary |-
-        VGh1LCAxMiBTZXAgMjAxMyAxMzoyMTozOCBHTVQ=
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        a2VlcC1hbGl2ZQ==
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        NTM5
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA+2WXY+TQBSG/0ozXkqTc4ZOgUn2oqYma2Jr3XCzcQ2ZwoBo
-        +ZBCtDb973soaRWoDd5omnjHzHmZj2demHfPAlUqJj/sWRwwyaaAYDtgWugI
-        ZAZTvp9VaekdiwgoQNhiaoKFwNEiQaoSTaX1JsuCHbUDFW923roKIl0yiQBg
-        MF8luYqj1NuWqqy21H3SxUlOTZKEhf5a6dTfeb7K+z1eobe69HJdxBmthF6g
-        oYrSK+Pj7BzQHIMzRu7iRHKQYvoSOACtp8ppgzoYoPQLPVR52k9NpUXsYPQ4
-        Wv85/u5szr5ocyRiXY58irfLEUFyHOTHWmmelFf92BrzEseGWI8jIt6sH0FI
-        LgZxbCmvcmwrL3zX/EisxxGc2/Xjv+F4JNblCJZ1q340pbAlOAP82FFe8WNX
-        ecGPDbE2R9shk97qfc0lXdkTawDHjvIKx66yx/FErMXRnKBNweaP/o+rIkuy
-        Mk6j0RO7n61Wj6NXbx7c+/ns0RjNHpbv3s5HL/IqyUmh0uBT8/TEKJhs4lDX
-        8eVnVhJ/MStZYxNdFBTQJD+z12knJ9lj6KsuJqpfx7Ov3mAXZ+7dYOezOHw0
-        WK4iosbknvlVsc0Kiox7psJSF5T9lp9n3xfzBSzc6Nvyx2tcvL+7I7xrHWZF
-        nQ2beiRIYy7cL039cKBUWgdbJu36KJK4CasGy8KQkiZFzMMzvi/LuhsLAAA=
-    http_version: 
-  recorded_at: Thu, 12 Sep 2013 13:21:38 GMT
+- :request: 
+  :response: 
+  :recorded_at: 
+- :request: 
+  :response: 
+  :recorded_at: 
 recorded_with: VCR 2.3.0

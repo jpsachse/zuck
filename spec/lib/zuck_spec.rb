@@ -8,7 +8,7 @@ describe Zuck::FbObject do
 
   let(:graph)   { Zuck.graph                                                  }
   let(:account) { Zuck::AdAccount.new(graph,  {id: "act_10150585630710217"})  }
-  let(:campaign){ Zuck::AdCampaign.new(graph, {id: "6010889111951"}, account) }
+  let(:campaign){ Zuck::AdSet.new(graph, {id: "6010889111951"}, account) }
   let(:group)   { Zuck::AdGroup.new(graph,    {id: "6010889169151"}, campaign)}
   let(:creative){ Zuck::AdCreative.new(graph, {id: "6010888561951"}, group)   }
 
@@ -112,7 +112,7 @@ describe Zuck::FbObject do
       it "an ad campaign" do
         VCR.use_cassette('create_ad_campaign') do
           o = {daily_budget: 1000, name: "bloody" }
-          campaign = Zuck::AdCampaign.create(graph, o, account)
+          campaign = Zuck::AdSet.create(graph, o, account)
           campaign.name.should == "bloody"
         end
       end
@@ -120,7 +120,7 @@ describe Zuck::FbObject do
       it "an ad campaign via an existing ad account" do
         VCR.use_cassette('create_ad_campaign') do
           o = {daily_budget: 1000, name: "bloody" }
-          campaign = account.create_ad_campaign(o)
+          campaign = account.new_set(o)
           campaign.name.should == "bloody"
         end
       end

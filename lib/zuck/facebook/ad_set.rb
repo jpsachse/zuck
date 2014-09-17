@@ -1,5 +1,10 @@
 module Zuck
-  class AdCampaign < RawFbObject
+  class AdSet < RawFbObject
+
+    # AdSets where previously called AdCampaign and are still accessed over 
+    # https://graph.facebook.com/act_{ad_account_id}/adcampaigns
+    # for legacy naming reasons according to the Facebook docs.
+    # https://developers.facebook.com/docs/reference/ads-api/adset
 
     CAMPAIGN_STATUS_ACTIVE = "ACTIVE"
     CAMPAIGN_STATUS_PAUSED = "PAUSED"

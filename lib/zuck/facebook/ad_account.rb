@@ -81,11 +81,11 @@ module Zuck
     
     # Creates a new campaign object with pointers to the current account
     # @param [Hash] data Initial values for the campaign's properties. Defaults to an emtpy Hash
-    # @return [Zuck::AdCampaign] A new campaign object
-    def new_campaign(data = {})
+    # @return [Zuck::AdSet] A new campaign object
+    def new_set(data = {})
       data ||= {}
       data[:account_id] ||= self.id
-      campaign = Zuck::AdCampaign.new(Zuck.graph, data, self)      
+      campaign = Zuck::AdSet.new(Zuck.graph, data, self)      
       return campaign
     end
 
@@ -146,7 +146,7 @@ module Zuck
       return result
     end
 
-    # gets AdCampaign stats for this AdAccount
+    # gets AdSet stats for this AdAccount
     #
     # @param [Boolean] get_all True if we want to page through all results, false if we only want the first page
     # @param [Array] ad_campaign_ids A list of ad campaign ids to specifically get
@@ -155,7 +155,7 @@ module Zuck
     # 
     # @return [Array] If we get all results, this will be an array of the data returned from FB. If we only
     #                 get one page of results, this will be a GraphCollection object that has paging support on it
-    def adcampaignstats(get_all, ad_campaign_ids=[], start_time = nil, end_time = nil)
+    def ad_set_stats(get_all, ad_campaign_ids=[], start_time = nil, end_time = nil)
       stats_query_hash = self.class.get_stats_query(start_time, end_time)
       stats_path = path+"/adcampaignstats"
       if ad_campaign_ids.length > 0 && ad_campaign_ids.length < 200
@@ -248,7 +248,7 @@ module Zuck
     # Gets a hash of data for the given account and connection type for the provided
     # array of URIs
     #
-    # @param [Array] base_url_list An array of URI strings to batch [e.g. a list of Zuck::AdCampaign ids]
+    # @param [Array] base_url_list An array of URI strings to batch [e.g. a list of Zuck::AdSet ids]
     # @param [Hash] params A hash of params for the batch call
     #
     # @return [Hash] A hash of batched data in the form of {uri => data}
