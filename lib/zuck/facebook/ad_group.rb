@@ -45,7 +45,7 @@ module Zuck
                :updated_time,
                :view_tags
 
-    parent_object :ad_campaign
+    parent_object :ad_set
     list_path     :adgroups
     connections   :ad_creatives
 
