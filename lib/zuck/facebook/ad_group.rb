@@ -21,7 +21,7 @@ module Zuck
     CONVERSION_ACTION_INSTALL = 'mobile_app_install'
     MOBILE_AND_FACEBOOK_AUDIENCE_NETWORK = 'mobilefeed-and-external'
 
-    REQUIRED_FIELDS = [:name, :bid_type, :bid_info, :campaign_id, :targeting, :objective]
+    REQUIRED_FIELDS = [:name, :bid_type, :campaign_id] #:bid_info, :targeting, :objective
 
     # The [fb docs](https://developers.facebook.com/docs/reference/ads-api/adaccount/)
     # were incomplete, so I added here what the graph explorer
