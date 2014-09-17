@@ -88,7 +88,7 @@ module Zuck
         "redownload" => 1        
       }
 
-      if self.targeting.to_json
+      if self.targeting
         args["targeting"] = self.targeting.to_json
       end
 
@@ -100,7 +100,7 @@ module Zuck
         args["bid_info"] = self.bid_info.to_json
       end
 
-      if self.conversion_specs.to_json
+      if self.conversion_specs
         args["conversion_specs"] = self.conversion_specs.to_json
       end
 
