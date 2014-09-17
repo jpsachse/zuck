@@ -12,6 +12,8 @@ module Zuck
                :object_story_id,
                :object_store_url,
                :object_type,
+               :object_url,
+               :object_story_spec,
                :body,
                :image_hash,
                :image_url,
@@ -51,7 +53,11 @@ module Zuck
       end
 
       args = {
-        "object_story_id" => self.object_story_id
+        "object_url" => self.object_url,
+        "title" => self.title,
+        "body" => self.body,
+        "image_url" => self.image_url,
+        "object_story_spec" => self.object_story_spec
       }      
 
       if (!self.id)
