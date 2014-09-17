@@ -18,7 +18,7 @@ module Zuck
     # actually returned.
     known_keys :account_id,
                :bid_type,
-               :bid_info
+               :bid_info,
                :campaign_group_id,
                :campaign_status,
                :created_time,
@@ -92,7 +92,7 @@ module Zuck
         "lifetime_budget" => self.lifetime_budget.to_i,
         "start_time" => self.start_time,
         "end_time" => self.end_time,        
-        "targeting" => targeting
+        "targeting" => self.targeting
       }  
 
       if (!self.id)
