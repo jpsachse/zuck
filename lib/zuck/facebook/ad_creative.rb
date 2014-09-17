@@ -52,6 +52,8 @@ module Zuck
         raise "You need to set the account_id field in order to save this object"
       end
 
+      puts self.object_story_spec
+
       args = {        
         # "title" => self.title,
         # "body" => self.body,
