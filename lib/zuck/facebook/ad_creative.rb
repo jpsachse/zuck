@@ -58,7 +58,7 @@ module Zuck
         # "title" => self.title,
         # "body" => self.body,
         # "image_url" => self.image_url,
-        "object_story_spec" => self.object_story_spec
+        "object_story_spec" => self.object_story_spec.to_json
       }  
 
       if self.object_url
