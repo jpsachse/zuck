@@ -34,7 +34,7 @@ module Zuck
                :campaign_id,
                :conversion_specs,
                :created_time,
-               :creative_ids,               
+               :creative,               
                :id,
                :objective,
                # :disapprove_reason_descriptions, # note: this should be reenabled with :adgroup_review_feedback
@@ -77,8 +77,8 @@ module Zuck
         raise "You need to set the following fields before saving: #{missing_fields.join(', ')}"
       elsif (self.objective == 'NONE' && !self.conversion_specs && (self.bid_type == BID_TYPE_ABSOLUTE_OCPM || self.bid_type == BID_TYPE_CPA))
         raise "You must specify 'conversion_specs' when the bid_type is OCPM or CPA"
-      elsif (!self.id && !self.creative_id)
-        raise "You must specify 'creative_id' to save a new AdGroup"
+      elsif (!self.id && !self.creative)
+        raise "You must specify a creative (JSON object) to save a new AdGroup"
       end
 
       args = {
