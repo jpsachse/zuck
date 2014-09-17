@@ -85,14 +85,29 @@ module Zuck
         "creative" => {'creative_id' => self.creative_id.to_s}.to_json,
         "name" => self.name,
         "campaign_id" => self.campaign_id.to_s,
-        "bid_type" => self.bid_type,
-        "bid_info" => self.bid_info.to_json,        
-        "targeting" => self.targeting.to_json,
-        "conversion_specs" => self.conversion_specs.to_json,
-        "redownload" => 1,
-        "objective" => self.objective
+        "redownload" => 1        
       }
-      
+
+      if self.targeting.to_json
+        args["targeting"] = self.targeting.to_json
+      end
+
+      if self.bid_type
+        args["bid_type"] = self.bid_type
+      end
+
+      if self.bid_info
+        args["bid_info"] = self.bid_info.to_json
+      end
+
+      if self.conversion_specs.to_json
+        args["conversion_specs"] = self.conversion_specs.to_json
+      end
+
+      if self.objective
+        args["objective"] = self.objective
+      end
+
       # since we don't set the adgroup status initially, we only want to change it if we have an id
       if (self.id)
         args["adgroup_status"] = self.adgroup_status
