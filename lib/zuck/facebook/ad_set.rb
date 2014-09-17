@@ -11,22 +11,26 @@ module Zuck
     CAMPAIGN_STATUS_DELETED = "DELETED"
     CAMPAIGN_STATUS_GROUP_PAUSED = "CAMPAIGN_GROUP_PAUSED"
 
-    REQUIRED_FIELDS = [:name, :campaign_status, :account_id, :campaign_group_id]
+    REQUIRED_FIELDS = [:name, :bid_type, :bid_info, :campaign_status, :account_id, :campaign_group_id, :targeting]
 
     # The [fb docs](https://developers.facebook.com/docs/reference/ads-api/adaccount/)
     # were incomplete, so I added here what the graph explorer
     # actually returned.
     known_keys :account_id,
+               :bid_type,
+               :bid_info
                :campaign_group_id,
                :campaign_status,
                :created_time,
+               :daily_budget,
                :daily_imps,
                :end_time,
-               :id,
-               :daily_budget,
+               :id,               
                :lifetime_budget,
                :name,
+               :redownload,
                :start_time,
+               :targeting,
                :updated_time
 
     parent_object :ad_campaign_group
@@ -80,13 +84,15 @@ module Zuck
       # Setup the post body for Facebook
       args = {
         "name" => self.name,
+        "bid_type" => self.bid_type,
+        "bid_info" => self.bid_info,
         "campaign_group_id" => self.campaign_group_id,
         "campaign_status" => self.campaign_status,
         "daily_budget" => self.daily_budget.to_i,
         "lifetime_budget" => self.lifetime_budget.to_i,
         "start_time" => self.start_time,
-        "end_time" => self.end_time,
-        "redownload" => true
+        "end_time" => self.end_time,        
+        "targeting" => targeting
       }  
 
       if (!self.id)
