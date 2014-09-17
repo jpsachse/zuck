@@ -52,13 +52,16 @@ module Zuck
         raise "You need to set the account_id field in order to save this object"
       end
 
-      args = {
-        "object_url" => self.object_url,
+      args = {        
         "title" => self.title,
         "body" => self.body,
         "image_url" => self.image_url,
         "object_story_spec" => self.object_story_spec
-      }      
+      }  
+
+      if self.object_url
+        args["object_url"] = self.object_url
+      end    
 
       if (!self.id)
         account_id = Zuck::AdAccount.id_for_api(self.account_id)
