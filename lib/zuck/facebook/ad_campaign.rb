@@ -18,6 +18,8 @@ module Zuck
                :daily_imps,
                :end_time,
                :id,
+               :daily_budget,
+               :lifetime_budget,
                :name,
                :start_time,
                :updated_time
@@ -64,12 +66,18 @@ module Zuck
       missing_fields = (REQUIRED_FIELDS - active_fields)
       if (missing_fields.length != 0)
         raise "You need to set the following fields before saving: #{missing_fields.join(', ')}"
+      elsif (!self.daily_budget && !self.lifetime_budget)
+        raise "You must specifiy either a daily or lifetime_budget"
+      elsif (self.lifetime_budget && self.lifetime_budget > 0 && !self.end_time)
+        raise "You must specify an end_time for campaigns with lifetime budgets"
       end
 
       # Setup the post body for Facebook
       args = {
         "name" => self.name,
         "campaign_status" => self.campaign_status,
+        "daily_budget" => self.daily_budget.to_i,
+        "lifetime_budget" => self.lifetime_budget.to_i,
         "start_time" => self.start_time,
         "end_time" => self.end_time,
         "redownload" => true
