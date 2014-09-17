@@ -83,7 +83,7 @@ module Zuck
 
       args = {
         "adgroup_status" => self.adgroup_status,
-        "creative" => {'creative_id' => self.creative_id.to_s}.to_json,
+        "creative" => self.creative.to_json,
         "name" => self.name,
         "campaign_id" => self.campaign_id.to_s,
         "redownload" => 1        
