@@ -114,6 +114,13 @@ module Zuck
 
       return audience
     end
+
+    def new_conversion_pixel(data = {})
+      data ||= {}
+      data[:account_id] ||= self.account_id
+
+      Zuck::ConversionPixel.new(Zuck.graph, data, self)
+    end
     
     # Fetches stats for AdCampaignGroups inside this AdAccount
     # 
