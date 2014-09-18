@@ -8,7 +8,7 @@ module Zuck
                :js_pixel,
                :name,
                :status,
-               :tag,
+               :tag
 
     parent_object :ad_account
     list_path     :offsitepixels
