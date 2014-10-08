@@ -60,5 +60,17 @@ module Zuck
         Zuck.graph.delete_object(self.id)
     end
 
+    def snippet 
+      if !self.js_pixel
+        response = Zuck.graph.get_connections(self.id, "snippets")
+        if (response && response.has_key?('data') && 
+          response['data'].has_key?(self.id) && 
+          response['data'][self.id].has_key?('js'))
+          self.js_pixel = response['data'][self.id]['js']
+        end
+      end
+      self.js_pixel
+    end
+
   end
 end
