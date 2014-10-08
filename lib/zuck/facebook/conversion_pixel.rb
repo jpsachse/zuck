@@ -3,7 +3,8 @@ module Zuck
 
     CREATION_FIELDS = [:name, :tag]
 
-    known_keys :id,
+    known_keys :account_id,
+               :id,
                :creator,
                :js_pixel,
                :name,
@@ -27,6 +28,9 @@ module Zuck
       end
 
       # Setup the post body for Facebook 
+
+      args = {"name" => self.name,
+               "tag" => self.tag}
 
       if (!self.id)
         account_id = Zuck::AdAccount.id_for_api(self.account_id)
