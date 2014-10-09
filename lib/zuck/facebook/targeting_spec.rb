@@ -77,7 +77,7 @@ module Zuck
     # @param spec [Hash] See {#initialize}
     def spec=(spec)
       @spec = spec || {}
-      build_spec
+      #build_spec
     end
 
     # @return [Hash] The reach for the options given in {#initialize}, see
@@ -150,20 +150,29 @@ module Zuck
       ts.fetch_reach
     end
 
+    def self.fetch_countries(graph, country_names)
+      country_codes = []
+      country_names.each do |name|
+        result = graph.search(name, type:"adgeolocation", location_types: ['country'])
+        country_codes << result.first["key"] if result.first
+      end
+      country_codes
+    end
+
     private
 
     def validate_spec
-      @spec[:countries]   = normalize_countries(@spec[:countries])
-      @spec[:keywords]    = normalize_array(@spec[:keywords])
-      @spec[:broad_age] ||= false
+      @spec[:geo_locations][:countries]   = normalize_countries(@spec[:geo_locations][:countries])
+      #@spec[:interests]    = normalize_array(@spec[:interests])
+      #@spec[:broad_age] ||= false
       validate_countries
-      unless @spec[:keywords].present? or @spec[:connections].present?
-        raise(ParamsMissingError, "Need to set :keywords or :connections")
+      unless @spec[:interests].present? or @spec[:connections].present?
+        raise(ParamsMissingError, "Need to set :interests or :connections")
       end
     end
 
     def validate_countries
-      self.class.valid_countries?(@spec[:countries])
+      self.class.valid_countries?(@spec[:geo_locations][:countries])
     end
 
     def self.valid_countries?(countries)
@@ -203,6 +212,5 @@ module Zuck
       @spec[:connections] = normalize_array([connections, @spec[:connections]])
 
     end
-
   end
 end
